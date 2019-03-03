@@ -4,17 +4,41 @@
 <head>
   <meta charset="utf-8">
   <title>Pig Dice Game</title>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Nothing+You+Could+Do|Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+  <div class="container">
+    <h1>K.O.M.O Pig Dice Game</h1>
+    <div class="jumbotron">
+      <h2>About Game</h2>
+      <h3>This is a game which is playable with just a single die. The first player to score 100 or more points wins the game. Two players play against each other in the EASY level and against the Computer in the HARD level. Each turn, a player
+        repeatedly rolls a die until either a 1 is rolled or the player decides to "hold". By holding, the player banks/adds the sum of all rolls to their totals but if they get a 1, they score nothing and it becomes the next player's turn.</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Player 1</h2>
+        <img src="images/player1die.png" alt="player1-die" class="playersdice">
+        <h3>PLAYER 1 SCORE</h3><br>
+        <h3 class="player1-score-area"></h3>
+      </div>
+      <div class="col-lg-6">
+        <h2>Player 2</h2>
+        <img src="images/player2die.png" alt="player2-die" class="playersdice">
+        <h3>PLAYER 2 SCORE</h3><br>
+        <h3 class="player2-score-area"></h3>
+      </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/scripts.js" charset="utf-8"></script>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.js" charset="utf-8"></script>
+  </div>
 </body>
 
 </html>
