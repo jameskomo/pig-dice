@@ -7,21 +7,20 @@ body {
 }
 
 h1 {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: 'Zeyada', cursive;
   margin-top: 100px;
-  font-size: 40px;
+  font-size: 80px;
   color: #1a3263;
   font-weight: bold;
 }
 
 h2 {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Inconsolata', monospace;
   text-decoration: underline;
 }
 
 h3 {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
 /* CLASSES STYLING */
@@ -35,6 +34,7 @@ h3 {
   height: 80px;
   background-color: #bbbbbb;
   margin-left: 180px;
+  border-radius: 6%;
 }
 
 .player2-score-area {
@@ -42,6 +42,8 @@ h3 {
   height: 80px;
   background-color: #bbbbbb;
   margin-left: 180px;
+  border-radius: 6%;
+  border-width: thick;
 }
 
 .footer {
@@ -51,6 +53,7 @@ h3 {
   position: relative;
   margin-top: 30px;
 }
+
 .btn {
   margin-left: 80px;
   margin-top: 30px;
@@ -59,3 +62,5 @@ h3 {
   font-size: 30px;
   border-color: white;
 }
+
+/* font-family: 'Exo 2', sans-serif; */
