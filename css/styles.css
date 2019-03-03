@@ -27,19 +27,35 @@ h3 {
 /* CLASSES STYLING */
 .playersdice {
   height: 200px;
-  width: 200px;
+  width: 220px;
 }
 
 .player1-score-area {
   width: 180px;
   height: 80px;
-  background-color: #f06f32;
+  background-color: #bbbbbb;
   margin-left: 180px;
 }
 
 .player2-score-area {
   width: 180px;
   height: 80px;
-  background-color: #f06f32;
+  background-color: #bbbbbb;
   margin-left: 180px;
+}
+
+.footer {
+  height: 30px;
+  line-height: 2.0;
+  background-color: #3f8f8d;
+  position: relative;
+  margin-top: 30px;
+}
+.btn {
+  margin-left: 80px;
+  margin-top: 30px;
+  height: 80px;
+  width: 150px;
+  font-size: 30px;
+  border-color: white;
 }
