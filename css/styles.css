@@ -30,16 +30,20 @@ h3 {
 }
 
 .player1-score-area {
+  padding-top: 20px;
   width: 180px;
   height: 80px;
+  font-size: 40px;
   background-color: #bbbbbb;
   margin-left: 180px;
   border-radius: 6%;
 }
 
 .player2-score-area {
+  padding-top: 20px;
   width: 180px;
   height: 80px;
+  font-size: 40px;
   background-color: #bbbbbb;
   margin-left: 180px;
   border-radius: 6%;
