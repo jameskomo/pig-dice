@@ -112,7 +112,7 @@ $(document).ready(function() {
       player1.roundScoreReset();
       player2.roundScoreReset();
       rollAction = 0;
-      $("#turnOver").text("Your rolled a 1. You Score 0 and your turn is over");
+      $("#turnOver").text("Your rolled a 1.Your turn is over");
       $("#endTurn").hide();
       playerDisplayer();
       i++;
@@ -150,7 +150,7 @@ $(document).ready(function() {
 
 
     if (player1.getGameScore() >= 100 || player2.getGameScore() >= 100) {
-      $("#turnOver").text("GAME OVER");
+      $("#turnOver").text("100 Points Reached. Restart");
       $("#playera-display").text("0");
       $("#playerb-display").text("0");
       $("#roundTotal").text("0");
