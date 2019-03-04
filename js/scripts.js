@@ -1,3 +1,31 @@
+// var Players=function (names){
+//   this.names=names;
+//   this.totalScore=0;
+//   this.activeScore=0;
+//   this.changingScores=[];
+// }
+//
+// Players.prototype.rollDie= function(){
+//   var playerScores=Math.floor((Math.random() * 6) + 1);
+//   this.activeScore+=playerScores;
+//   this.changingScores.push(playerScores);
+//   return this.activeScore;
+// }
+// Players.prototype.hold=function() {
+//   this.totalScore+=this.activeScore;
+// }
+//
+// // Clear if player gets a 1
+// Players.prototype.clear=function() {
+//   this.activeScore=0;
+//   this.changingScores=[];
+// }
+//
+// // Check Winner
+// Players.prototype.winner=function() {
+//   if (this.totalScore=>100)
+//   alert(this.name+ "! has won the game");
+// }
 
   // jQuery generate random Numbers with a click
   $(".roll").click(function() {
@@ -20,7 +48,7 @@
     var imageTwo = document.querySelectorAll("img")[1];
     imageTwo.setAttribute("src", imageLinkTwo);
   });
-  $(".hold").click(function() {
 
+  $(".hold").click(function() {
 
   });

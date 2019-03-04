@@ -67,4 +67,11 @@ h3 {
   border-color: white;
 }
 
+.rollOne {
+  display: none;
+}
+.rollTwo {
+  display: none;
+}
+
 /* font-family: 'Exo 2', sans-serif; */
