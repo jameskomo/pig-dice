@@ -148,7 +148,7 @@ $(document).ready(function() {
     player1.totalScoreReset();
     player2.totalScoreReset();
 
-
+    // Check if Target score is reached and reset game
     if (player1.getTempScore() >= 100 || player2.getTempScore() >= 100) {
       $("#turnOver").text("100 Points Reached. Restart");
       $("#playera-display").text("0");
