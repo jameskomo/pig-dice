@@ -12,12 +12,17 @@ $(".roll").click(function() {
 
   var randomNumbersTwo = Math.floor((Math.random() * 6) + 1);
   $('.player2-score-area').html(randomNumbersTwo);
+
+  // PLAYER 1
+
+  // Use random Number to select respective dice image and use concatenation to and number to end of Dice string
+  var DiceImage = "die" + randomNumbersOne + ".png"; //dice1.png - dice6.png
+  var ImageLink = "images/" + DiceImage; //images/die1.png - images/die6.png
+  var imageOne = document.querySelectorAll("img")[0];
+  imageOne.setAttribute("src", ImageLink);
+
 });
 
-if (randomNumbersOne>randomNumbersTwo){
-  alert("Player 1 Wins");
-}else if (randomNumbersTwo>randomNumbersOne){
-alert("Player 2 Wins");
-}else {
-  alert("It is a draw");
-}
+
+
+// $("img")[0].attr("src", ImageLink);
