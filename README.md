@@ -18,7 +18,7 @@ James Komo
 
 ## **Setup instructions**
 
-Run on this Link: https:https://jameskomo.github.io/pig-dice-game/.
+Run on this Link: https://jameskomo.github.io/pig-dice/.
 You need a smartphone, laptop, desktop or any gadget sreen accessible to internet
 Open from a friendly `browser
 
