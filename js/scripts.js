@@ -24,11 +24,11 @@ Player.prototype.somethingGame = function(currentScore) {
   this.tempScore += currentScore
 }
 
-Player.prototype.gettotalScore = function() {
+Player.prototype.getTotalScore = function() {
   return this.totalScore;
 }
 
-Player.prototype.edittotalScore = function(totalScoreTotal) {
+Player.prototype.editTotalScore = function(totalScoreTotal) {
   return this.totalScore += totalScoreTotal;
 }
 
@@ -54,7 +54,7 @@ var playerTurns = function() {
   if (i % 2 === 0) {
     $("#turnOver").text("");
     $("#roll-display").html("");
-    var player1Round = player1.edittotalScore(totalScore);
+    var player1Round = player1.editTotalScore(totalScore);
     player1.somethingGame(player1Round);
     $("#playera-display").text(player1.getTempScore());
 
@@ -62,7 +62,7 @@ var playerTurns = function() {
   } else if (i % 2 === 1) {
     $("#turnOver").text("");
     $("#roll-display").html("");
-    var player2Round = player2.edittotalScore(totalScore);
+    var player2Round = player2.editTotalScore(totalScore);
     player2.somethingGame(player2Round);
     $("#playerb-display").text(player2.getTempScore());
   }
@@ -119,11 +119,11 @@ $(document).ready(function() {
     }
 
     if (i % 2 === 0) {
-      player1.edittotalScore(rollAction);
-      $("#roundTotal").text(player1.gettotalScore());
+      player1.editTotalScore(rollAction);
+      $("#roundTotal").text(player1.getTotalScore());
     } else if (i % 2 === 1) {
-      player2.edittotalScore(rollAction);
-      $("#roundTotal").text(player2.gettotalScore());
+      player2.editTotalScore(rollAction);
+      $("#roundTotal").text(player2.getTotalScore());
     }
 
     event.preventDefault();
