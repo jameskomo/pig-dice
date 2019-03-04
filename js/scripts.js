@@ -1,104 +1,165 @@
-function Player(playerName, turnScore, totalScore) {
-  this.playerName = playerName;
-  this.turnScore = turnScore;
-  this.totalScore = totalScore;
+function Player(playerN) {
+  this.playerName = playerN;
+  this.roundScore = 0;
+  this.gameScore = 0;
 }
 
-Player.prototype.roll = function() {
-  var diceValues = [1, 2, 3, 4, 5, 6];
-  var rollValue = diceValues[Math.floor(Math.random() * diceValues.length)];
-  if (rollValue === 1) {
-    this.turnScore = 0;
-  } else {
-    this.turnScore = this.turnScore + rollValue;
-  };
-  return rollValue;
+Player.prototype.roundScoreReset = function() {
+  this.roundScore = 0;
+  return this.roundScore;
+};
+
+Player.prototype.gameScoreReset = function() {
+  this.gameScore = 0;
+  return this.gameScore;
 }
 
-Player.prototype.score = function() {
-  this.totalScore = this.turnScore + this.totalScore;
-  this.turnScore = 0;
+Player.prototype.getGameScore = function() {
+  return this.gameScore;
 }
 
-$(function() {
-  var allPlayers = [];
+Player.prototype.somethingGame = function(currentScore) {
+  this.gameScore += currentScore
+}
 
-  $("form#create-player").submit(function(event) {
-    event.preventDefault();
-    $(".game").show();
-    $(".form-hider").hide();
+Player.prototype.getRoundScore = function() {
+  return this.roundScore;
+}
 
-    var player1Name = $("input#player1-name").val();
-    var player2Name = $("input#player2-name").val();
+Player.prototype.editRoundScore = function(roundScoreTotal) {
+  return this.roundScore += roundScoreTotal;
+}
 
-    var player1 = new Player(player1Name, 0, 0)
-    var player2 = new Player(player2Name, 0, 0)
-    allPlayers.push(player1);
-    allPlayers.push(player2);
+Player.prototype.getName = function() {
+  return this.playerName;
+}
+
+var currentScore = 0;
+var player1Name;
+var player2Name;
+var roundScore = 0;
+var aRollTotal = 0;
+var bRollTotal = 0;
+var rollAction;
+var i = 2;
+
+var diceRoll = function () {
+    var x = Math.floor((Math.random() * 6) + 1);
+    return x;
+}
+
+var playerTurns = function() {
+  if (i % 2 === 0) {
+      $("#turnOver").text("");
+      $("#roll-display").html("");
+      var player1Round = player1.editRoundScore(roundScore);
+      player1.somethingGame(player1Round);
+      $("#playera-display").text(player1.getGameScore());
 
 
-    $(".player1-name").text(player1.playerName);
-    $(".player1-total-score").html("<span class='player1-total-score'>" + player1.totalScore + "</span>");
+  } else if (i % 2 === 1) {
+       $("#turnOver").text("");
+       $("#roll-display").html("");
+       var player2Round = player2.editRoundScore(roundScore);
+       player2.somethingGame(player2Round);
+       $("#playerb-display").text(player2.getGameScore());
+   }
+}
+var playerDisplayer = function() {
+  if (i % 2 === 0) {
 
-    $("button#player1-roll").click(function(event) {
+      $("#playerDisplayerParent").show();
+      $("#playerDisplayer").text(player2.getName());
+
+
+  } else if (i % 2 === 1) {
+
+       $("#playerDisplayerParent").show();
+       $("#playerDisplayer").text(player1.getName());
+
+   }
+}
+
+
+  $(document).ready(function() {
+
+    $("form#nameEntry").submit(function(event) {
       event.preventDefault();
-      var player1RolledNumber = player1.roll();
-      if (player1RolledNumber === 1) {
-        $(".player1").hide();
-        $(".player2").show();
-        $(".player1-scored1").show();
-      }
-      $(".player1-rolled-number").text(player1RolledNumber);
-      $(".player1-turn-score").text(player1.turnScore);
-      $(".player2-scored1").hide();
+
+      var player1Name = $("#player1Name").val();
+      var player2Name = $("#player2Name").val();
+
+      player1 = new Player(player1Name);
+      player2 = new Player(player2Name);
+
+      $("form#nameEntry").hide();
+      $("form#gameUI").show();
+
+      $("#playeraName").text(player1.getName());
+      $("#playerbName").text(player2.getName());
     });
 
-    $("button#player1-hold").click(function(event) {
-      event.preventDefault();
-      player1.score();
-      $(".player1-total-score").text(player1.totalScore);
-      $(".player1-rolled-number").text("");
-      $(".player1-turn-score").text("");
-      if (player1.totalScore >= 100) {
-        $(".game").hide();
-        $(".player1-victory").show();
-      } else {
-      $(".player1").hide();
-      $(".player2").show();
-      $(".player2-scored1").hide();
-      }
-    });
+      $("#roll").click(function(event) {
+        $("#endTurn").show();
+        $("#turnOver").text("");
+        rollAction = diceRoll();
 
-    $(".player2-name").text(player2.playerName);
-    $(".player2-total-score").html("<span class='player2-total-score'>" + player2.totalScore + "</span>");
+        $("#roll-display").text(rollAction);
 
-    $("button#player2-roll").click(function(event) {
-      event.preventDefault();
-      var player2RolledNumber = player2.roll();
-      if (player2RolledNumber === 1) {
-        $(".player2").hide();
-        $(".player1").show();
-        $(".player2-scored1").show();
-        $(".player1-scored1").hide();
-      }
-      $(".player2-rolled-number").text(player2RolledNumber);
-      $(".player2-turn-score").text(player2.turnScore);
-    });
+        if (rollAction === 1) {
+          player1.roundScoreReset();
+          player2.roundScoreReset();
+          rollAction = 0;
+          $("#turnOver").text("Your turn is over");
+          $("#endTurn").hide();
+          playerDisplayer();
+          i++;
+        }
 
-    $("button#player2-hold").click(function(event) {
-      event.preventDefault();
-      player2.score();
-      $(".player2-total-score").text(player2.totalScore);
-      $(".player2-rolled-number").text("");
-      $(".player2-turn-score").text("");
-      if (player2.totalScore >= 100) {
-        $(".game").hide();
-        $(".player2-victory").show();
-      } else {
-      $(".player1").show();
-      $(".player2").hide();
-      $(".player1-scored1").hide();
-      }
-    });
+        if (i % 2 === 0) {
+          player1.editRoundScore(rollAction);
+          $("#roundTotal").text(player1.getRoundScore());
+        } else if (i % 2 === 1) {
+          player2.editRoundScore(rollAction);
+          $("#roundTotal").text(player2.getRoundScore());
+        }
+
+        event.preventDefault();
+      });
+
+      $("#startGame").click(function() {
+        $("#playerDisplayerParent").show();
+        $("#playerDisplayer").text(player1.getName());
+        $("#startGame").hide();
+        $("#endTurn").show();
+        $("#roll").show();
+        playerTurns();
+      });
+
+
+      $("#endTurn").click(function() {
+
+        playerTurns();
+        playerDisplayer();
+        i++;
+
+        player1.roundScoreReset();
+        player2.roundScoreReset();
+
+
+        if (player1.getGameScore() >= 100 || player2.getGameScore() >= 100){
+          $("#turnOver").text("GAME OVER");
+          $("#playera-display").text("0");
+          $("#playerb-display").text("0");
+          $("#roundTotal").text("0");
+          $("#playerDisplayerParent").hide();
+          $("#startGame").show();
+          $("#endTurn").hide();
+          $("#roll").hide();
+          i = 2;
+          player1.gameScoreReset();
+          player2.gameScoreReset();
+        }
+      });
+
   });
-});

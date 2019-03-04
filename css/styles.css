@@ -1,80 +1,23 @@
-.container  {
-  display: table;
-}
-
-.col1 {
-  width: 50%;
+body {
+  background: url('../images/pigDiceBackground.jpg') top left repeat;
+  height: 100%;
   text-align: center;
-  float: left;
-  padding: 10px;
-  border-right: 2px solid #A8A8A8;
+  color: #fff;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 
-.col2 {
-  width: 50%;
-  text-align: center;
-  float: right;
-  padding: 25px;
-}
-
-.btn {
-  padding: 10px;
-}
-
-.game {
+#roll, #endTurn, #playerDisplayerParent, #gameUI {
   display: none;
 }
 
-.player2 {
-  display: none;
+#img-max {
+  max-width: 80%;
+  border: 4px solid #fff;
+  border-radius: 6px;
 }
-
-.player1-victory {
-  display: none;
-}
-
-.player2-victory {
-  display: none;
-}
-
-.player1-scored1 {
-  display: none;
-}
-
-.player2-scored1 {
-  display: none;
-  padding: 20px;
-}
-
-.form-hider {
-  text-align: center;
-}
-
-.header {
-  text-align: center;
-  padding: 5px;
-  background-color: #8B4513;
-  color: white;
-  border-color: #8B4513;
-  border-radius: 25px;
-}
-
-.rules  {
-  width: 100%;
-  padding: 10px;
-  background-color: #8B4513;
-  color: white;
-  border-color: #8B4513;
-  border-radius: 25px;
-  text-align:center;
-}
-
-.form-group {
-  background-color: pink;
-}
-
-.button {
-  background-color: green;
-  color: white;
-  width: 100%;
-}
+#namesBtn {
+  margin-top: 15px;
