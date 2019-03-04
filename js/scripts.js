@@ -1,54 +1,104 @@
-// var Players=function (names){
-//   this.names=names;
-//   this.totalScore=0;
-//   this.activeScore=0;
-//   this.changingScores=[];
-// }
-//
-// Players.prototype.rollDie= function(){
-//   var playerScores=Math.floor((Math.random() * 6) + 1);
-//   this.activeScore+=playerScores;
-//   this.changingScores.push(playerScores);
-//   return this.activeScore;
-// }
-// Players.prototype.hold=function() {
-//   this.totalScore+=this.activeScore;
-// }
-//
-// // Clear if player gets a 1
-// Players.prototype.clear=function() {
-//   this.activeScore=0;
-//   this.changingScores=[];
-// }
-//
-// // Check Winner
-// Players.prototype.winner=function() {
-//   if (this.totalScore=>100)
-//   alert(this.name+ "! has won the game");
-// }
+function Player(playerName, turnScore, totalScore) {
+  this.playerName = playerName;
+  this.turnScore = turnScore;
+  this.totalScore = totalScore;
+}
 
-  // jQuery generate random Numbers with a click
-  $(".roll").click(function() {
-    // Generate Random Numbers between 1-6, Add 1 to ensure we get 6 random numbers since Math.Random generates between 0-5 and Round off to the nearest whole number using Math.floor () function
-    var randomNumbersOne = Math.floor((Math.random() * 6) + 1);
-    $('.player1-score-area').html(randomNumbersOne);
-    // PLAYER 1
+Player.prototype.roll = function() {
+  var diceValues = [1, 2, 3, 4, 5, 6];
+  var rollValue = diceValues[Math.floor(Math.random() * diceValues.length)];
+  if (rollValue === 1) {
+    this.turnScore = 0;
+  } else {
+    this.turnScore = this.turnScore + rollValue;
+  };
+  return rollValue;
+}
 
-    // Use random Number to select respective dice image and use concatenation to and number to end of Dice string
-    var DiceImage = "die" + randomNumbersOne + ".png"; //die1.png - die6.png
-    var ImageLink = "images/" + DiceImage; //images/die1.png - images/die6.png
-    var imageOne = document.querySelectorAll("img")[0];
-    imageOne.setAttribute("src", ImageLink);
+Player.prototype.score = function() {
+  this.totalScore = this.turnScore + this.totalScore;
+  this.turnScore = 0;
+}
+
+$(function() {
+  var allPlayers = [];
+
+  $("form#create-player").submit(function(event) {
+    event.preventDefault();
+    $(".game").show();
+    $(".form-hider").hide();
+
+    var player1Name = $("input#player1-name").val();
+    var player2Name = $("input#player2-name").val();
+
+    var player1 = new Player(player1Name, 0, 0)
+    var player2 = new Player(player2Name, 0, 0)
+    allPlayers.push(player1);
+    allPlayers.push(player2);
+
+
+    $(".player1-name").text(player1.playerName);
+    $(".player1-total-score").html("<span class='player1-total-score'>" + player1.totalScore + "</span>");
+
+    $("button#player1-roll").click(function(event) {
+      event.preventDefault();
+      var player1RolledNumber = player1.roll();
+      if (player1RolledNumber === 1) {
+        $(".player1").hide();
+        $(".player2").show();
+        $(".player1-scored1").show();
+      }
+      $(".player1-rolled-number").text(player1RolledNumber);
+      $(".player1-turn-score").text(player1.turnScore);
+      $(".player2-scored1").hide();
+    });
+
+    $("button#player1-hold").click(function(event) {
+      event.preventDefault();
+      player1.score();
+      $(".player1-total-score").text(player1.totalScore);
+      $(".player1-rolled-number").text("");
+      $(".player1-turn-score").text("");
+      if (player1.totalScore >= 100) {
+        $(".game").hide();
+        $(".player1-victory").show();
+      } else {
+      $(".player1").hide();
+      $(".player2").show();
+      $(".player2-scored1").hide();
+      }
+    });
+
+    $(".player2-name").text(player2.playerName);
+    $(".player2-total-score").html("<span class='player2-total-score'>" + player2.totalScore + "</span>");
+
+    $("button#player2-roll").click(function(event) {
+      event.preventDefault();
+      var player2RolledNumber = player2.roll();
+      if (player2RolledNumber === 1) {
+        $(".player2").hide();
+        $(".player1").show();
+        $(".player2-scored1").show();
+        $(".player1-scored1").hide();
+      }
+      $(".player2-rolled-number").text(player2RolledNumber);
+      $(".player2-turn-score").text(player2.turnScore);
+    });
+
+    $("button#player2-hold").click(function(event) {
+      event.preventDefault();
+      player2.score();
+      $(".player2-total-score").text(player2.totalScore);
+      $(".player2-rolled-number").text("");
+      $(".player2-turn-score").text("");
+      if (player2.totalScore >= 100) {
+        $(".game").hide();
+        $(".player2-victory").show();
+      } else {
+      $(".player1").show();
+      $(".player2").hide();
+      $(".player1-scored1").hide();
+      }
+    });
   });
-  // Player 2
-  $(".roll").click(function() {
-    var randomNumbersTwo = Math.floor((Math.random() * 6) + 1);
-    $('.player2-score-area').html(randomNumbersTwo);
-    var imageLinkTwo = "images/die" + randomNumbersTwo + ".png";
-    var imageTwo = document.querySelectorAll("img")[1];
-    imageTwo.setAttribute("src", imageLinkTwo);
-  });
-
-  $(".hold").click(function() {
-
-  });
+});

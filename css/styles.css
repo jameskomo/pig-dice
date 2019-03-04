@@ -1,77 +1,80 @@
-/* ELEMENT TAGS STYLING */
-body {
-  background-color: #d6f8b8;
+.container  {
+  display: table;
+}
+
+.col1 {
+  width: 50%;
   text-align: center;
-  height: 100%;
-  margin: 0;
+  float: left;
+  padding: 10px;
+  border-right: 2px solid #A8A8A8;
 }
 
-h1 {
-  font-family: 'Zeyada', cursive;
-  margin-top: 100px;
-  font-size: 80px;
-  color: #1a3263;
-  font-weight: bold;
-}
-
-h2 {
-  font-family: 'Inconsolata', monospace;
-  text-decoration: underline;
-}
-
-h3 {
-  font-family: 'ZCOOL QingKe HuangYou', cursive;
-}
-
-/* CLASSES STYLING */
-.playersdice {
-  height: 200px;
-  width: 220px;
-}
-
-.player1-score-area {
-  padding-top: 20px;
-  width: 180px;
-  height: 80px;
-  font-size: 40px;
-  background-color: #bbbbbb;
-  margin-left: 180px;
-  border-radius: 6%;
-}
-
-.player2-score-area {
-  padding-top: 20px;
-  width: 180px;
-  height: 80px;
-  font-size: 40px;
-  background-color: #bbbbbb;
-  margin-left: 180px;
-  border-radius: 6%;
-  border-width: thick;
-}
-
-.footer {
-  height: 30px;
-  line-height: 2.0;
-  background-color: #3f8f8d;
-  position: relative;
-  margin-top: 30px;
+.col2 {
+  width: 50%;
+  text-align: center;
+  float: right;
+  padding: 25px;
 }
 
 .btn {
-  margin-left: 80px;
-  margin-top: 30px;
-  height: 80px;
-  width: 150px;
-  font-size: 30px;
-  border-color: white;
+  padding: 10px;
 }
 
-.rollOne {
-  display: none;
-}
-.rollTwo {
+.game {
   display: none;
 }
 
-/* font-family: 'Exo 2', sans-serif; */
+.player2 {
+  display: none;
+}
+
+.player1-victory {
+  display: none;
+}
+
+.player2-victory {
+  display: none;
+}
+
+.player1-scored1 {
+  display: none;
+}
+
+.player2-scored1 {
+  display: none;
+  padding: 20px;
+}
+
+.form-hider {
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  padding: 5px;
+  background-color: #8B4513;
+  color: white;
+  border-color: #8B4513;
+  border-radius: 25px;
+}
+
+.rules  {
+  width: 100%;
+  padding: 10px;
+  background-color: #8B4513;
+  color: white;
+  border-color: #8B4513;
+  border-radius: 25px;
+  text-align:center;
+}
+
+.form-group {
+  background-color: pink;
+}
+
+.button {
+  background-color: green;
+  color: white;
+  width: 100%;
+}
