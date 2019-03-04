@@ -1,35 +1,35 @@
 // BACK-END/BUSINESS LOGIC
 
-function Player(playerN) {
-  this.playerName = playerN;
-  this.roundScore = 0;
-  this.gameScore = 0;
+function Player(playerName) {
+  this.playerName = playerName;
+  this.totalScore = 0;
+  this.tempScore = 0;
 }
 
-Player.prototype.roundScoreReset = function() {
-  this.roundScore = 0;
-  return this.roundScore;
+Player.prototype.totalScoreReset = function() {
+  this.totalScore = 0;
+  return this.totalScore;
 };
 
-Player.prototype.gameScoreReset = function() {
-  this.gameScore = 0;
-  return this.gameScore;
+Player.prototype.tempScoreReset = function() {
+  this.tempScore = 0;
+  return this.tempScore;
 }
 
-Player.prototype.getGameScore = function() {
-  return this.gameScore;
+Player.prototype.getTempScore = function() {
+  return this.tempScore;
 }
 
 Player.prototype.somethingGame = function(currentScore) {
-  this.gameScore += currentScore
+  this.tempScore += currentScore
 }
 
-Player.prototype.getRoundScore = function() {
-  return this.roundScore;
+Player.prototype.gettotalScore = function() {
+  return this.totalScore;
 }
 
-Player.prototype.editRoundScore = function(roundScoreTotal) {
-  return this.roundScore += roundScoreTotal;
+Player.prototype.edittotalScore = function(totalScoreTotal) {
+  return this.totalScore += totalScoreTotal;
 }
 
 Player.prototype.getName = function() {
@@ -39,32 +39,32 @@ Player.prototype.getName = function() {
 var currentScore = 0;
 var player1Name;
 var player2Name;
-var roundScore = 0;
+var totalScore = 0;
 var aRollTotal = 0;
 var bRollTotal = 0;
 var rollAction;
 var i = 2;
 
 var diceRoll = function() {
-  var x = Math.floor((Math.random() * 6) + 1);
-  return x;
+  var randomNumbers = Math.floor((Math.random() * 6) + 1);
+  return randomNumbers;
 }
 
 var playerTurns = function() {
   if (i % 2 === 0) {
     $("#turnOver").text("");
     $("#roll-display").html("");
-    var player1Round = player1.editRoundScore(roundScore);
+    var player1Round = player1.edittotalScore(totalScore);
     player1.somethingGame(player1Round);
-    $("#playera-display").text(player1.getGameScore());
+    $("#playera-display").text(player1.getTempScore());
 
 
   } else if (i % 2 === 1) {
     $("#turnOver").text("");
     $("#roll-display").html("");
-    var player2Round = player2.editRoundScore(roundScore);
+    var player2Round = player2.edittotalScore(totalScore);
     player2.somethingGame(player2Round);
-    $("#playerb-display").text(player2.getGameScore());
+    $("#playerb-display").text(player2.getTempScore());
   }
 }
 var playerDisplayer = function() {
@@ -109,8 +109,8 @@ $(document).ready(function() {
     $("#roll-display").text(rollAction);
 
     if (rollAction === 1) {
-      player1.roundScoreReset();
-      player2.roundScoreReset();
+      player1.totalScoreReset();
+      player2.totalScoreReset();
       rollAction = 0;
       $("#turnOver").text("Your rolled a 1.Your turn is over");
       $("#endTurn").hide();
@@ -119,11 +119,11 @@ $(document).ready(function() {
     }
 
     if (i % 2 === 0) {
-      player1.editRoundScore(rollAction);
-      $("#roundTotal").text(player1.getRoundScore());
+      player1.edittotalScore(rollAction);
+      $("#roundTotal").text(player1.gettotalScore());
     } else if (i % 2 === 1) {
-      player2.editRoundScore(rollAction);
-      $("#roundTotal").text(player2.getRoundScore());
+      player2.edittotalScore(rollAction);
+      $("#roundTotal").text(player2.gettotalScore());
     }
 
     event.preventDefault();
@@ -145,11 +145,11 @@ $(document).ready(function() {
     playerDisplayer();
     i++;
 
-    player1.roundScoreReset();
-    player2.roundScoreReset();
+    player1.totalScoreReset();
+    player2.totalScoreReset();
 
 
-    if (player1.getGameScore() >= 100 || player2.getGameScore() >= 100) {
+    if (player1.getTempScore() >= 100 || player2.getTempScore() >= 100) {
       $("#turnOver").text("100 Points Reached. Restart");
       $("#playera-display").text("0");
       $("#playerb-display").text("0");
@@ -159,8 +159,8 @@ $(document).ready(function() {
       $("#endTurn").hide();
       $("#roll").hide();
       i = 2;
-      player1.gameScoreReset();
-      player2.gameScoreReset();
+      player1.tempScoreReset();
+      player2.tempScoreReset();
     }
   });
 
