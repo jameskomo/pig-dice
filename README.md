@@ -1,4 +1,4 @@
-# **Project Name: TRIANGLE TRACKER**
+# **Project Name: PIG DICE GAME**
 
 ## **Project description**
 The Pig Dice Game is a two player game where the objective is to score 100 points before your opponent does. Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold". The first player to score 100 or more points wins. The game allows players to enter their names on load. 
@@ -38,7 +38,7 @@ Open from a friendly `browser
 
 IDEs: Atom and Sublime Editor
 Browsers include either: Google Chrome, Mozilla Firefox.
-JavaScript ES6,jQuery 3.3.1, Bootstrap 4.0, HTML5 & CSS3,
+JavaScript ES6 (Functions, Objects Arrays, Constructors),jQuery (DOM Manipulation) 3.3.1, Bootstrap 4.0, HTML5 & CSS3,
 
 
 ## **Known Bugs**
