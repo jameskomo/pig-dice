@@ -1,14 +1,8 @@
 body {
   /* background: url('../images/pigDiceBackground.jpg') top left repeat; */
-  background-color: #d2c8c8;
+  background-color: #acc6aa;
   height: 100%;
   text-align: center;
-  color: #fff;
-  text-shadow:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
 }
 
 #roll, #endTurn, #playerDisplayerParent, #gameUI {
@@ -17,8 +11,21 @@ body {
 
 #img-max {
   max-width: 80%;
-  border: 4px solid #fff;
-  border-radius: 6px;
+  border-radius: 6%;
 }
+
 #namesBtn {
   margin-top: 15px;
+}
+
+h1 {
+  font-family: 'Caveat Brush', cursive;
+}
+
+h2 {
+  font-family: 'Comfortaa', cursive;
+}
+
+h3 {
+  font-family: 'Scope One', serif;
+}

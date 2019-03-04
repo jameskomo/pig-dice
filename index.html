@@ -4,53 +4,56 @@
 <head>
   <meta charset="utf-8">
   <title>Pig Dice Game</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Comfortaa|Scope+One" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" type="text/css">
 </head>
 
 <body>
   <h1>K.O.M.O Pig Dice</h1>
-
-  <img class="img-responsive center-block" id="img-max" src="images/die1.jpg" alt="Pig Image">
-  <form id="gameUI">
-    <div class="row">
-      <h3 id="playerDisplayerParent"><span id="playerDisplayer"></span> it's your turn</h3>
-      <div class="col-md-6">
-        <h3>Current Roll:</h3>
-        <p id="roll-display"></p>
+  <div class="container">
+    <img id="img-max" src="images/die1.png" alt="Pig Image">
+    <form id="gameUI">
+      <div class="row">
+        <h3 id="playerDisplayerParent"><span id="playerDisplayer"></span> it's your turn</h3>
+        <div class="col-md-6">
+          <h3>Current Roll:</h3>
+          <p id="roll-display"></p>
+        </div>
+        <div class="col-md-6">
+          <h3>Current Round Total:</h3>
+          <p id="roundTotal"></p>
+        </div>
       </div>
       <div class="col-md-6">
-        <h3>Current Round Total:</h3>
-        <p id="roundTotal"></p>
+        <h2><span id="playeraName"></span> Total</h2>
+        <p id="playera-display"></p>
       </div>
-    </div>
-    <div class="col-md-6">
-      <h2><span id="playeraName"></span> Total</h2>
-      <p id="playera-display"></p>
-    </div>
-    <div class="col-md-6">
-      <h2><span id="playerbName"></span> Total</h2>
-      <p id="playerb-display"></p>
-    </div>
-    <h2 id="turnOver"></h2>
-    <div class="col-md-12 col-lg-12">
-      <button type="button" class="btn btn-primary" id="roll">Roll Dice</button>
-      <button type="button" class="btn btn-success" id="endTurn">Hold</button>
-      <button type="button" class="btn btn-success" id="startGame">New Game</button>
-    </div>
-  </form>
+      <div class="col-md-6">
+        <h2><span id="playerbName"></span> Total</h2>
+        <p id="playerb-display"></p>
+      </div>
+      <h2 id="turnOver"></h2>
+      <div class="col-md-12 col-lg-12">
+        <button type="button" class="btn btn-primary btn" -lg id="roll">Roll Dice <i class="fas fa-dice"></i></button>
+        <button type="button" class="btn btn-primary btn" id="endTurn">Hold <i class="fas fa-hand-holding"></i></button>
+        <button type="button" class="btn btn-primary btn" id="startGame">New Game <i class="fas fa-gamepad"></i></button>
+      </div>
+    </form>
 
-  <form id="nameEntry">
-    <div class="">
-      <label for="player1Name">Player 1 Name:</label>
-      <input type="text" id="player1Name" class="form-control" autocomplete="off">
-    </div>
-    <div class="">
-      <label for="player2Name">Player 2 Name:</label>
-      <input type="text" id="player2Name" class="form-control" autocomplete="off">
-    </div>
-    <button type="submit" class="btn btn-success" id="namesBtn">Submit</button>
-  </form>
+    <form id="nameEntry">
+      <div class="">
+        <label for="player1Name">Player 1 Name:</label>
+        <input type="text" id="player1Name" class="form-control" autocomplete="off">
+      </div>
+      <div class="">
+        <label for="player2Name">Player 2 Name:</label>
+        <input type="text" id="player2Name" class="form-control" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-primary btn" id="namesBtn">Submit <i class="fab fa-audible"></i></button>
+    </form>
+  </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

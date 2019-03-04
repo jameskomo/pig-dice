@@ -1,3 +1,5 @@
+// BACK-END/BUSINESS LOGIC
+
 function Player(playerN) {
   this.playerName = playerN;
   this.roundScore = 0;
@@ -80,7 +82,7 @@ var playerDisplayer = function() {
   }
 }
 
-
+// FRONT-END INTERFACE
 $(document).ready(function() {
 
   $("form#nameEntry").submit(function(event) {
@@ -110,7 +112,7 @@ $(document).ready(function() {
       player1.roundScoreReset();
       player2.roundScoreReset();
       rollAction = 0;
-      $("#turnOver").text("Your turn is over");
+      $("#turnOver").text("Your rolled a 1. You Score 0 and your turn is over");
       $("#endTurn").hide();
       playerDisplayer();
       i++;
