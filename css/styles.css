@@ -1,70 +1,31 @@
-/* ELEMENT TAGS STYLING */
 body {
-  background-color: #d6f8b8;
-  text-align: center;
+  /* background: url('../images/pigDiceBackground.jpg') top left repeat; */
+  background-color: #acc6aa;
   height: 100%;
-  margin: 0;
+  text-align: center;
+}
+
+#roll, #endTurn, #playerDisplayerParent, #gameUI {
+  display: none;
+}
+
+#img-max {
+  max-width: 80%;
+  border-radius: 6%;
+}
+
+#namesBtn {
+  margin-top: 15px;
 }
 
 h1 {
-  font-family: 'Zeyada', cursive;
-  margin-top: 100px;
-  font-size: 80px;
-  color: #1a3263;
-  font-weight: bold;
+  font-family: 'Caveat Brush', cursive;
 }
 
 h2 {
-  font-family: 'Inconsolata', monospace;
-  text-decoration: underline;
+  font-family: 'Comfortaa', cursive;
 }
 
 h3 {
-  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-family: 'Scope One', serif;
 }
-
-/* CLASSES STYLING */
-.playersdice {
-  height: 200px;
-  width: 220px;
-}
-
-.player1-score-area {
-  padding-top: 20px;
-  width: 180px;
-  height: 80px;
-  font-size: 40px;
-  background-color: #bbbbbb;
-  margin-left: 180px;
-  border-radius: 6%;
-}
-
-.player2-score-area {
-  padding-top: 20px;
-  width: 180px;
-  height: 80px;
-  font-size: 40px;
-  background-color: #bbbbbb;
-  margin-left: 180px;
-  border-radius: 6%;
-  border-width: thick;
-}
-
-.footer {
-  height: 30px;
-  line-height: 2.0;
-  background-color: #3f8f8d;
-  position: relative;
-  margin-top: 30px;
-}
-
-.btn {
-  margin-left: 80px;
-  margin-top: 30px;
-  height: 80px;
-  width: 150px;
-  font-size: 30px;
-  border-color: white;
-}
-
-/* font-family: 'Exo 2', sans-serif; */

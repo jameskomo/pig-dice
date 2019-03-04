@@ -6,40 +6,58 @@
   <title>Pig Dice Game</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Exo+2|Inconsolata|ZCOOL+QingKe+HuangYou|Zeyada" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Comfortaa|Scope+One" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
 </head>
 
 <body>
+  <h1>K.O.M.O Pig Dice</h1>
   <div class="container">
-    <h1>K.O.M.O Pig Dice Game</h1>
-    <div class="jumbotron">
-      <h2>About Game</h2>
-      <h3>This is a game which is playable with just a single die. The first player to score 100 or more points wins the game. Two players play against each other in the EASY level and against the Computer in the HARD level. Each turn, a player
-        repeatedly rolls a die until either a 1 is rolled or the player decides to "hold". By holding, the player banks/adds the sum of all rolls to their totals but if they get a 1, they score nothing and it becomes the next player's turn.</h3>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <h2>Player 1</h2>
-        <img src="images/die1.png" alt="player1-die" class="imageOne">
-        <h3>PLAYER 1 SCORE</h3><br>
-        <h3 class="player1-score-area"></h3>
+    <img id="img-max" src="images/die1.png" alt="Pig Image">
+    <form id="gameUI">
+      <div class="row">
+        <h3 id="playerDisplayerParent"><span id="playerDisplayer"></span> it's your turn</h3>
+        <div class="col-md-6">
+          <h3>Current Roll:</h3>
+          <p id="roll-display"></p>
+        </div>
+        <div class="col-md-6">
+          <h3>Current Round Total:</h3>
+          <p id="roundTotal"></p>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <h2>Player 2</h2>
-        <img src="images/die2.png" alt="player2-die" class="imageTwo">
-        <h3>PLAYER 2 SCORE</h3><br>
-        <h3 class="player2-score-area"></h3>
+      <div class="col-md-6">
+        <h2><span id="playeraName"></span> Total</h2>
+        <p id="playera-display"></p>
       </div>
-    </div>
+      <div class="col-md-6">
+        <h2><span id="playerbName"></span> Total</h2>
+        <p id="playerb-display"></p>
+      </div>
+      <h2 id="turnOver"></h2>
+      <div class="col-md-12 col-lg-12">
+        <button type="button" class="btn btn-primary btn" -lg id="roll">Roll Dice <i class="fas fa-dice"></i></button>
+        <button type="button" class="btn btn-primary btn" id="endTurn">Hold <i class="fas fa-hand-holding"></i></button>
+        <button type="button" class="btn btn-primary btn" id="startGame">New Game <i class="fas fa-gamepad"></i></button>
+      </div>
+    </form>
+
+    <form id="nameEntry">
+      <div class="">
+        <label for="player1Name">Player 1 Name:</label>
+        <input type="text" id="player1Name" class="form-control" autocomplete="off">
+      </div>
+      <div class="">
+        <label for="player2Name">Player 2 Name:</label>
+        <input type="text" id="player2Name" class="form-control" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-primary btn" id="namesBtn">Submit <i class="fab fa-audible"></i></button>
+    </form>
   </div>
-  <button type="button" name="Roll" class="btn btn-primary btn-lg roll">Roll <i class="fas fa-dice"></i></button>
-  <button type="button" name="Hold" class="btn btn-primary btn-lg hold">Hold <i class="fas fa-piggy-bank"></i></button>
+  </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/scripts.js" charset="utf-8"></script>
-  <footer class="footer">🎲Developed by K.O.M.O © 2019 🎲</footer>
-
 </body>
 
 </html>
