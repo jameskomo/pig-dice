@@ -1,5 +1,6 @@
 body {
-  background: url('../images/pigDiceBackground.jpg') top left repeat;
+  /* background: url('../images/pigDiceBackground.jpg') top left repeat; */
+  background-color: #d2c8c8;
   height: 100%;
   text-align: center;
   color: #fff;
