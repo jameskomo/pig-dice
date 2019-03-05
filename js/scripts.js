@@ -183,9 +183,14 @@ $(document).ready(function() {
 
 });
 
+
 //Out=of-scope addons
 PlaySound = function() {
   var audio = new Audio('images/applause.mp3');
   audio.loop = false;
   audio.play();
 }
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
