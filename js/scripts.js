@@ -21,6 +21,10 @@ Player.prototype.getTempScore = function() {
 }
 
 Player.prototype.somethingGame = function(currentScore) {
+  var DiceImage = "die" + currentScore + ".png"; //die1.png - die6.png
+  var ImageLink = "images/" + DiceImage; //images/die1.png - images/die6.png
+  var imageOne = document.querySelectorAll("img")[0];
+  imageOne.setAttribute("src", ImageLink);
   this.tempScore += currentScore
 }
 
@@ -47,6 +51,10 @@ var i = 2;
 
 var diceRoll = function() {
   var randomNumbers = Math.floor((Math.random() * 6) + 1);
+  var DiceImage = "die" + randomNumbers + ".png"; //die1.png - die6.png
+  var ImageLink = "images/" + DiceImage; //images/die1.png - images/die6.png
+  var imageOne = document.querySelectorAll("img")[0];
+  imageOne.setAttribute("src", ImageLink);
   return randomNumbers;
 }
 
@@ -147,6 +155,10 @@ $(document).ready(function() {
 
     player1.totalScoreReset();
     player2.totalScoreReset();
+    $("#img-max").show();
+
+
+
 
     // Check if Target score is reached and reset game
     if (player1.getTempScore() >= 100 || player2.getTempScore() >= 100) {
