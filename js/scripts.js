@@ -151,11 +151,11 @@ $(document).ready(function() {
 
     playerTurns();
     playerDisplayer();
+    $("#img-max").show();
     i++;
 
     player1.totalScoreReset();
     player2.totalScoreReset();
-    $("#img-max").show();
 
 
 
