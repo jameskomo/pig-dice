@@ -12,6 +12,7 @@ body {
 #img-max {
   max-width: 80%;
   border-radius: 6%;
+  z-index: -1;
 }
 
 #namesBtn {
@@ -19,9 +20,10 @@ body {
 }
 
 .default-image {
+  z-index: 1;
   display: none;
-  width: 60px;
-  height: 60px;;
+  width: 290px;
+  height: 290px;;
   border-radius: 6%
 }
 

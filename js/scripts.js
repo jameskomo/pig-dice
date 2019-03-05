@@ -55,6 +55,7 @@ var diceRoll = function() {
   var ImageLink = "images/" + DiceImage; //images/die1.png - images/die6.png
   var imageOne = document.querySelectorAll("img")[0];
   imageOne.setAttribute("src", ImageLink);
+  $(".default-image").hide();
   return randomNumbers;
 }
 
@@ -110,6 +111,7 @@ $(document).ready(function() {
   });
 
   $("#roll").click(function(event) {
+    $("#img-max").fadeIn();
     $("#endTurn").show();
     $("#turnOver").text("");
     rollAction = diceRoll();
@@ -148,12 +150,11 @@ $(document).ready(function() {
 
 
   $("#endTurn").click(function() {
-
     playerTurns();
     playerDisplayer();
-    $("#img-max").show();
     i++;
-
+    $(".default-image").show();
+    $("#img-max").fadeOut();
     player1.totalScoreReset();
     player2.totalScoreReset();
 
