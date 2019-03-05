@@ -140,6 +140,8 @@ $(document).ready(function() {
   });
 
   $("#startGame").click(function() {
+    $(".default-image").fadeIn();
+    $("#img-max").fadeOut();
     $("#playerDisplayerParent").show();
     $("#playerDisplayer").text(player1.getName());
     $("#startGame").hide();
@@ -163,6 +165,8 @@ $(document).ready(function() {
 
     // Check if Target score is reached and reset game
     if (player1.getTempScore() >= 100 || player2.getTempScore() >= 100) {
+      PlaySound();
+      $("#startConfetti").show();
       $("#turnOver").text("100 Points Reached. Restart");
       $("#playera-display").text("0");
       $("#playerb-display").text("0");
@@ -178,3 +182,10 @@ $(document).ready(function() {
   });
 
 });
+
+//Additional/out=of-scope Confetti
+PlaySound = function () {
+    var audio = new Audio('images/applause.mp3');
+    audio.loop = false;
+    audio.play();
+}
