@@ -1,10 +1,24 @@
+/* HTML ELEMENTS STYLING */
+
 body {
   /* background: url('../images/pigDiceBackground.jpg') top left repeat; */
   background-color: #acc6aa;
   height: 100%;
   text-align: center;
 }
+h1 {
+  font-family: 'Caveat Brush', cursive;
+}
 
+h2 {
+  font-family: 'Comfortaa', cursive;
+}
+
+h3 {
+  font-family: 'Scope One', serif;
+}
+
+/* CLASSES AND IDs STYLING */
 #roll, #endTurn, #playerDisplayerParent, #gameUI {
   display: none;
 }
@@ -25,16 +39,4 @@ body {
   width: 290px;
   height: 290px;;
   border-radius: 6%
-}
-
-h1 {
-  font-family: 'Caveat Brush', cursive;
-}
-
-h2 {
-  font-family: 'Comfortaa', cursive;
-}
-
-h3 {
-  font-family: 'Scope One', serif;
 }

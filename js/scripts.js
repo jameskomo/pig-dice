@@ -183,9 +183,9 @@ $(document).ready(function() {
 
 });
 
-//Additional/out=of-scope Confetti
-PlaySound = function () {
-    var audio = new Audio('images/applause.mp3');
-    audio.loop = false;
-    audio.play();
+//Out=of-scope addons
+PlaySound = function() {
+  var audio = new Audio('images/applause.mp3');
+  audio.loop = false;
+  audio.play();
 }
